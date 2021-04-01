@@ -1,9 +1,11 @@
 <?php
-    // Enter your host name, database username, password, and database name.
-    // If you have not set database password on localhost then set empty.
-    $con = mysqli_connect("localhost","root","root","LoginSystem");
-    // Check connection
+   
+    $con = mysqli_connect("46.229.230.164","hz024700","dhynydor","hz024703db");
+    
     if (mysqli_connect_errno()){
-        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        echo "Nepodarilo sa mi pripojit do db " . mysqli_connect_error();
+    }else{
+        echo "som pripojeny";
     }
-?>
+
+    
