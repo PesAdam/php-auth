@@ -10,7 +10,9 @@
     require('db.php');
     
     if (isset($_REQUEST['username'])) {
-    
+       
+        
+        
         $username = stripslashes($_REQUEST['username']);
         $username = mysqli_real_escape_string($con, $username);
         $email    = stripslashes($_REQUEST['email']);
@@ -18,10 +20,20 @@
         $password = stripslashes($_REQUEST['password']);
         $password = mysqli_real_escape_string($con, $password);
         $create_datetime = date("Y-m-d H:i:s");
+        
+        $check = "SELECT * FROM `users` WHERE `username` = '$username' OR `email` = '$email' ";
+        $cresult = mysqli_query($con, $check); 
+
+        if (mysqli_num_rows($cresult)>0) {
+            echo "neco se pokazilo";
+            die();
+        } 
+
         $query    = "INSERT into `users` (username, password, email, create_datetime)
                      VALUES ('$username', '" . md5($password) . "', '$email', '$create_datetime')";
         $result   = mysqli_query($con, $query);
-        
+
+         
         if ($result) {
             echo "<div class='form'>
                   <h3>You are registered successfully.</h3><br/>

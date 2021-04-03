@@ -4,8 +4,6 @@
     
     if (mysqli_connect_errno()){
         echo "Nepodarilo sa mi pripojit do db " . mysqli_connect_error();
-    }else{
-        echo "som pripojeny";
     }
 
     
