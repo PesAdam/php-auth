@@ -21,6 +21,7 @@
         $query    = "INSERT into `users` (username, password, email, create_datetime)
                      VALUES ('$username', '" . md5($password) . "', '$email', '$create_datetime')";
         $result   = mysqli_query($con, $query);
+        
         if ($result) {
             echo "<div class='form'>
                   <h3>You are registered successfully.</h3><br/>
